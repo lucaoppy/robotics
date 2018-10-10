@@ -1,0 +1,357 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+    <model name="Kobra">
+        <self_collide>true</self_collide>
+        <plugin name="model_push" filename="/home/USERNAME/.gazebo/models/kobra2/plugins/build/libmodel_push.so" />
+        <static>false</static>
+        <link name="chassis">
+            <inertial>
+                <mass>10</mass>
+            </inertial>
+            <pose>0 0 .15 0 0 0</pose>
+            <collision name="collision">
+                <geometry>
+                    <box>
+                        <size>.40 .46 .2</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>.40 .46 .2</size>
+                    </box>
+                </geometry>
+            </visual>
+        </link>
+        <link name="frontrightwheel">
+            <inertial>
+                <mass>1</mass>
+            </inertial>
+            <pose>.2475 .09 .0725 0 1.570796 0</pose>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <radius>.0725</radius>
+                        <length>.045</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <radius>.0725</radius>
+                        <length>.045</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
+        <joint type="revolute" name="frontrighthinge">
+            <pose>0 0 .0725 0 0 0</pose>
+            <child>frontrightwheel</child>
+            <parent>chassis</parent>
+            <axis>
+                <xyz>-1 0 0</xyz>
+            </axis>
+        </joint>
+        <link name="rearrightwheel">
+            <inertial>
+                <mass>1</mass>
+            </inertial>
+            <pose>.2475 -.09 .0725 0 1.570796 0</pose>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <radius>.0725</radius>
+                        <length>.045</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <radius>.0725</radius>
+                        <length>.045</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
+        <joint type="revolute" name="rearrighthinge">
+            <pose>0 0 .0725 0 0 0</pose>
+            <child>rearrightwheel</child>
+            <parent>chassis</parent>
+            <axis>
+                <xyz>-1 0 0</xyz>
+            </axis>
+        </joint>
+        <link name="frontleftwheel">
+            <inertial>
+                <mass>1</mass>
+            </inertial>
+            <pose>-.2475 .09 .0725 0 1.570796 0</pose>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <radius>.0725</radius>
+                        <length>.045</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <radius>.0725</radius>
+                        <length>.045</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
+        <joint type="revolute" name="frontlefthinge">
+            <pose>0 0 .0725 0 0 0</pose>
+            <child>frontleftwheel</child>
+            <parent>chassis</parent>
+            <axis>
+                <xyz>-1 0 0</xyz>
+            </axis>
+        </joint>
+        <link name="rearleftwheel">
+            <inertial>
+                <mass>1</mass>
+            </inertial>
+            <pose>-.2475 -.09 .0725 0 1.570796 0</pose>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <radius>.0725</radius>
+                        <length>.045</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <radius>.0725</radius>
+                        <length>.045</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
+        <joint type="revolute" name="rearlefthinge">
+            <pose>0 0 .0725 0 0 0</pose>
+            <child>rearleftwheel</child>
+            <parent>chassis</parent>
+            <axis>
+                <xyz>-1 0 0</xyz>
+            </axis>
+        </joint>
+        <link name="verticalarm">
+            <gravity>0</gravity>
+            <inertial>
+                <inertia>
+                    <ixx>0</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0</iyy>
+                    <iyz>0</iyz>
+                    <izz>0</izz>
+                </inertia>
+            </inertial>
+            <pose>0 .15 .525 0 0 0</pose>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <radius>.03</radius>
+                        <length>.55</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <radius>.03</radius>
+                        <length>.55</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
+        <joint type="fixed" name="verticalarmhinge">
+            <pose>0 0 0 0 0 0</pose>
+            <child>verticalarm</child>
+            <parent>chassis</parent>
+            <axis>
+                <xyz>0 0 1</xyz>
+            </axis>
+        </joint>
+        <link name="lateralcamera">
+            <gravity>0</gravity>
+            <inertial>
+                <inertia>
+                    <ixx>0</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0</iyy>
+                    <iyz>0</iyz>
+                    <izz>0</izz>
+                </inertia>
+            </inertial>
+            <pose>0 .2 .78 0 0 0</pose>
+            <collision name="collision">
+                <geometry>
+                    <box>
+                        <size>.01 .04 .04</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>.01 .04 .04</size>
+                    </box>
+                </geometry>
+            </visual>
+        </link>
+        <joint type="revolute" name="lateralcamerahinge">
+            <pose>0 -.02 0 0 0 0</pose>
+            <child>lateralcamera</child>
+            <parent>verticalarm</parent>
+            <axis>
+                <xyz>0 0 1</xyz>
+            </axis>
+            <dynamics>
+                <damping>10</damping>
+                <friction>0.7</friction>
+            </dynamics>
+            <lower>-1.0472</lower>
+            <upper>1.0472</upper>
+        </joint>
+        <link name="verticalcamera">
+            <gravity>0</gravity>
+            <inertial>
+                <inertia>
+                    <ixx>0</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0</iyy>
+                    <iyz>0</iyz>
+                    <izz>0</izz>
+                </inertia>
+            </inertial>
+            <pose>0 .24 .78 0 0 0</pose>
+            <collision name="collision">
+                <geometry>
+                    <box>
+                        <size>.04 .04 .01</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>.04 .04 .01</size>
+                    </box>
+                </geometry>
+            </visual>
+        </link>
+        <joint type="revolute" name="verticalcamerahinge">
+            <pose>0 -.02 0 0 0 0</pose>
+            <child>verticalcamera</child>
+            <parent>lateralcamera</parent>
+            <axis>
+                <xyz>1 0 0</xyz>
+            </axis>
+            <dynamics>
+                <damping>10</damping>
+                <friction>0.7</friction>
+            </dynamics>
+            <lower>-1.0472</lower>
+            <upper>1.0472</upper>
+        </joint>
+        <model name="camera">
+            <link name="camera">
+                <gravity>0</gravity>
+                <pose frame="">0 0 0 0 -0 1.570796</pose>
+                <inertial>
+                    <mass>0.1</mass>
+                </inertial>
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>0.02 0.02 0.02</size>
+                        </box>
+                    </geometry>
+                </visual>
+                <sensor name="camera" type="camera">
+                    <camera name="__default__">
+                        <horizontal_fov>1.047</horizontal_fov>
+                        <image>
+                            <width>320</width>
+                            <height>240</height>
+                        </image>
+                        <clip>
+                            <near>0.1</near>
+                            <far>100</far>
+                        </clip>
+                    </camera>
+                    <always_on>1</always_on>
+                    <update_rate>30</update_rate>
+                    <visualize>1</visualize>
+                </sensor>
+            </link>
+            <pose frame="">0 .27 .78 0 -0 0</pose>
+            <joint type="fixed" name="camerahinge">
+                <pose>0 0 0 0 0 0</pose>
+                <child>camera</child>
+                <parent>verticalcamera</parent>
+                <axis>
+                    <xyz>0 0 0</xyz>
+                </axis>
+            </joint>
+        </model>
+        <model name="hokuyo">
+            <link name="hokuyo">
+                <gravity>0</gravity>
+                <inertial>
+                    <mass>0.1</mass>
+                </inertial>
+                <visual name="visual">
+                    <geometry>
+                        <mesh>
+                            <uri>model://hokuyo/meshes/hokuyo.dae</uri>
+                        </mesh>
+                    </geometry>
+                </visual>
+                <sensor name="laser" type="ray">
+                    <pose frame="">0.01 0 0.03 0 0 0</pose>
+                    <ray>
+                        <scan>
+                            <horizontal>
+                                <samples>640</samples>
+                                <resolution>1</resolution>
+                                <min_angle>-1.04719</min_angle>
+                                <max_angle>1.04719</max_angle>
+                            </horizontal>
+                        </scan>
+                        <range>
+                            <min>0.08</min>
+                            <max>10</max>
+                            <resolution>0.01</resolution>
+                        </range>
+                    </ray>
+                    <plugin name="laser" filename="libRayPlugin.so" />
+                    <always_on>1</always_on>
+                    <update_rate>30</update_rate>
+                    <visualize>1</visualize>
+                </sensor>
+            </link>
+            <joint type="fixed" name="hokuyohinge">
+                <pose>0 0 0 0 0 0</pose>
+                <child>hokuyo</child>
+                <parent>chassis</parent>
+                <axis>
+                    <xyz>-1 0 0</xyz>
+                </axis>
+            </joint>
+            <pose frame="">0 .22 .25 0 0 1.570796</pose>
+        </model>
+    </model>
+</sdf>
